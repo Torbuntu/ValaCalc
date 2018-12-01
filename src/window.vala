@@ -4,168 +4,172 @@ namespace Valacalc {
 	public class Window : Gtk.ApplicationWindow {
 		
 		[GtkChild]
-		Gtk.Button btn0;
+		Gtk.Button btn_0;
 		
 		[GtkChild]
-		Gtk.Button btn1;
+		Gtk.Button btn_1;
 		
 		[GtkChild]
-		Gtk.Button btn2;
+		Gtk.Button btn_2;
 		
 		[GtkChild]
-		Gtk.Button btn3;
+		Gtk.Button btn_3;
 		
 		[GtkChild]
-		Gtk.Button btn4;	
+		Gtk.Button btn_4;
 			
 		[GtkChild]
-		Gtk.Button btn5;
+		Gtk.Button btn_5;
 		
 		[GtkChild]
-		Gtk.Button btn6;
+		Gtk.Button btn_6;
 		
 		[GtkChild]
-		Gtk.Button btn7;
+		Gtk.Button btn_7;
 		
 		[GtkChild]
-		Gtk.Button btn8;
+		Gtk.Button btn_8;
 		
 		[GtkChild]
-		Gtk.Button btn9;
+		Gtk.Button btn_9;
 		
 		[GtkChild]
-		Gtk.Button btnDiv;
+		Gtk.Button btn_divide;
 		
 		[GtkChild]
-		Gtk.Button btnMul;
+		Gtk.Button btn_multiply;
 		
 		[GtkChild]
-		Gtk.Button btnAdd;
+		Gtk.Button btn_add;
 		
 		[GtkChild]
-		Gtk.Button btnSub;
+		Gtk.Button btn_subtract;
 		
 		[GtkChild]
-		Gtk.Button btnEql;
+		Gtk.Button btn_equals;
 		
 		[GtkChild]
-		Gtk.Button btnClear;
+		Gtk.Button btn_clear;
 		
 		[GtkChild]
-		Gtk.Button btnDot;
+		Gtk.Button btn_dot;
 		
 		[GtkChild]
-		Gtk.TextView txtDisplay;
+		Gtk.TextView txt_display;
 		
-		double firstVal;
-		double secondVal;
+		double first_value;
+		double second_value;
         bool check;
         string op;
         
-        void numButtonPress(string val){
-            if(check){
-              secondVal = double.parse(secondVal.to_string() + val);
-              txtDisplay.buffer.text += secondVal.to_string();
+        void num_button_press (string val) {
+            if (check) {
+              second_value = double.parse(second_value.to_string() + val);
+              txt_display.buffer.text += second_value.to_string();
             }else{
-              firstVal = double.parse(firstVal.to_string() + val);
-              txtDisplay.buffer.text = firstVal.to_string();
+              first_value = double.parse(first_value.to_string() + val);
+              txt_display.buffer.text = first_value.to_string();
             }	
         }
         
 		public Window (Gtk.Application app) {
 			Object (application: app);
-		    txtDisplay.set_wrap_mode (Gtk.WrapMode.WORD);
+		    txt_display.set_wrap_mode (Gtk.WrapMode.WORD);
 		    
 		    check = false;
 		    
-		    btn0.clicked.connect(() => {
-		          numButtonPress("0");	          
+		    btn_0.clicked.connect(() => {
+		          num_button_press("0");
 		    });
-		    btn1.clicked.connect(() => {
-		          numButtonPress("1");		
+		    btn_1.clicked.connect(() => {
+		          num_button_press("1");
 		    });
-		    btn2.clicked.connect(() => {
-		          numButtonPress("2");	
+		    btn_2.clicked.connect(() => {
+		          num_button_press("2");
 		    });
-		    btn3.clicked.connect(() => {
-		          numButtonPress("3");	
+		    btn_3.clicked.connect(() => {
+		          num_button_press("3");
 		    });
-		    btn4.clicked.connect(() => {
-		          numButtonPress("4");	
+		    btn_4.clicked.connect(() => {
+		          num_button_press("4");
 		    });
-		    btn5.clicked.connect(() => {
-		          numButtonPress("5");	
+		    btn_5.clicked.connect(() => {
+		          num_button_press("5");
 		    });
-		    btn6.clicked.connect(() => {
-		          numButtonPress("6");	
+		    btn_6.clicked.connect(() => {
+		          num_button_press("6");
 		    });
-		    btn7.clicked.connect(() => {
-		          numButtonPress("7");
+		    btn_7.clicked.connect(() => {
+		          num_button_press("7");
 		    });
-		    btn8.clicked.connect(() => {
-		          numButtonPress("8");	
+		    btn_8.clicked.connect(() => {
+		          num_button_press("8");
 		    });
-		    btn9.clicked.connect(() => {
-		          numButtonPress("9");	
+		    btn_9.clicked.connect(() => {
+		          num_button_press("9");
 		    });
-		    btnAdd.clicked.connect(() => {
-		          if(check){
-		              txtDisplay.buffer.text = (firstVal+secondVal).to_string();
+		    btn_add.clicked.connect(() => {
+		          if (check) {
+		              txt_display.buffer.text = (first_value+second_value).to_string();
 		          }else{
                       op = "+";
-		              txtDisplay.buffer.text = firstVal.to_string() + op;
+		              txt_display.buffer.text = first_value.to_string() + op;
 		              check = true;
 		          }
 		    });
-		    btnSub.clicked.connect(() => {
-		          if(check){
-		              txtDisplay.buffer.text = (firstVal-secondVal).to_string();
+		    btn_subtract.clicked.connect(() => {
+		          if (check) {
+		              txt_display.buffer.text = (first_value-second_value).to_string();
 		          }else{
 		              op = "-";
-		              txtDisplay.buffer.text = firstVal.to_string() + op;
+		              txt_display.buffer.text = first_value.to_string() + op;
 		              check = true;
 		          }
 		    });
-		    btnMul.clicked.connect(() => {
-		          if(check){
-		              txtDisplay.buffer.text = (firstVal*secondVal).to_string();
+		    btn_multiply.clicked.connect(() => {
+		          if (check) {
+		              txt_display.buffer.text = (first_value*second_value).to_string();
 		          }else{
 		              op = "*";
-		              txtDisplay.buffer.text = firstVal.to_string() + op;
+		              txt_display.buffer.text = first_value.to_string() + op;
 		              check = true;
 		          }
 		    });
-		    btnDiv.clicked.connect(() => {
-		          if(check){
-		              txtDisplay.buffer.text = (firstVal/secondVal).to_string();
+		    btn_divide.clicked.connect(() => {
+		          if (check) {
+		              txt_display.buffer.text = (first_value/second_value).to_string();
 		          }else{
 		              op = "/";
-		              txtDisplay.buffer.text = firstVal.to_string() + op;
+		              txt_display.buffer.text = first_value.to_string() + op;
 		              check = true;
 		          }
 		    });
 		    
-		    btnDot.clicked.connect(() => {
-                txtDisplay.buffer.text += "."; 
+		    btn_dot.clicked.connect(() => {
+                txt_display.buffer.text += ".";
 		    });
 		    
-		    btnClear.clicked.connect(() => {
-		        txtDisplay.buffer.text = "";		    
+		    btn_clear.clicked.connect(() => {
+		        txt_display.buffer.text = "";
+		        first_value = 0;
+		        second_value = 0;
+		        check = false;
+
 		    });
 		    
-		    btnEql.clicked.connect(() => {
-		        switch (op){
+		    btn_equals.clicked.connect(() => {
+		        switch (op) {
 		            case "+":
-		                txtDisplay.buffer.text = (firstVal+secondVal).to_string();
+		                txt_display.buffer.text = (first_value+second_value).to_string();
 		                break;
 	                case "-":
-		                txtDisplay.buffer.text = (firstVal-secondVal).to_string();
+		                txt_display.buffer.text = (first_value-second_value).to_string();
 		                break;
 	                case "*":
-		                txtDisplay.buffer.text = (firstVal*secondVal).to_string();
+		                txt_display.buffer.text = (first_value*second_value).to_string();
 		                break;
 	                case "/":
-		                txtDisplay.buffer.text = (firstVal/secondVal).to_string();
+		                txt_display.buffer.text = (first_value/second_value).to_string();
 		                break;
 		        }
 		        
