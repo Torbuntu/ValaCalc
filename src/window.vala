@@ -64,11 +64,11 @@ namespace Valacalc {
         
         void num_button_press (string val) {
             if (check) {
-              second_value = double.parse(second_value.to_string() + val);
-              txt_display.buffer.text += second_value.to_string();
+              second_value = double.parse(second_value.to_string () + val);
+              txt_display.buffer.text += second_value.to_string ();
             }else{
-              first_value = double.parse(first_value.to_string() + val);
-              txt_display.buffer.text = first_value.to_string();
+              first_value = double.parse(first_value.to_string () + val);
+              txt_display.buffer.text = first_value.to_string ();
             }	
         }
         
@@ -78,78 +78,78 @@ namespace Valacalc {
 		    
 		    check = false;
 		    
-		    btn_0.clicked.connect(() => {
+		    btn_0.clicked.connect (() => {
 		          num_button_press("0");
 		    });
-		    btn_1.clicked.connect(() => {
+		    btn_1.clicked.connect (() => {
 		          num_button_press("1");
 		    });
-		    btn_2.clicked.connect(() => {
+		    btn_2.clicked.connect (() => {
 		          num_button_press("2");
 		    });
-		    btn_3.clicked.connect(() => {
+		    btn_3.clicked.connect (() => {
 		          num_button_press("3");
 		    });
-		    btn_4.clicked.connect(() => {
+		    btn_4.clicked.connect (() => {
 		          num_button_press("4");
 		    });
-		    btn_5.clicked.connect(() => {
+		    btn_5.clicked.connect (() => {
 		          num_button_press("5");
 		    });
-		    btn_6.clicked.connect(() => {
+		    btn_6.clicked.connect (() => {
 		          num_button_press("6");
 		    });
-		    btn_7.clicked.connect(() => {
+		    btn_7.clicked.connect (() => {
 		          num_button_press("7");
 		    });
-		    btn_8.clicked.connect(() => {
+		    btn_8.clicked.connect (() => {
 		          num_button_press("8");
 		    });
-		    btn_9.clicked.connect(() => {
+		    btn_9.clicked.connect (() => {
 		          num_button_press("9");
 		    });
-		    btn_add.clicked.connect(() => {
+		    btn_add.clicked.connect (() => {
 		          if (check) {
-		              txt_display.buffer.text = (first_value+second_value).to_string();
+		              txt_display.buffer.text = (first_value+second_value).to_string ();
 		          }else{
                       op = "+";
-		              txt_display.buffer.text = first_value.to_string() + op;
+		              txt_display.buffer.text = first_value.to_string () + op;
 		              check = true;
 		          }
 		    });
-		    btn_subtract.clicked.connect(() => {
+		    btn_subtract.clicked.connect (() => {
 		          if (check) {
-		              txt_display.buffer.text = (first_value-second_value).to_string();
+		              txt_display.buffer.text = (first_value-second_value).to_string ();
 		          }else{
 		              op = "-";
-		              txt_display.buffer.text = first_value.to_string() + op;
+		              txt_display.buffer.text = first_value.to_string () + op;
 		              check = true;
 		          }
 		    });
-		    btn_multiply.clicked.connect(() => {
+		    btn_multiply.clicked.connect (() => {
 		          if (check) {
-		              txt_display.buffer.text = (first_value*second_value).to_string();
+		              txt_display.buffer.text = (first_value*second_value).to_string ();
 		          }else{
 		              op = "*";
-		              txt_display.buffer.text = first_value.to_string() + op;
+		              txt_display.buffer.text = first_value.to_string () + op;
 		              check = true;
 		          }
 		    });
-		    btn_divide.clicked.connect(() => {
+		    btn_divide.clicked.connect (() => {
 		          if (check) {
-		              txt_display.buffer.text = (first_value/second_value).to_string();
+		              txt_display.buffer.text = (first_value/second_value).to_string ();
 		          }else{
 		              op = "/";
-		              txt_display.buffer.text = first_value.to_string() + op;
+		              txt_display.buffer.text = first_value.to_string () + op;
 		              check = true;
 		          }
 		    });
 		    
-		    btn_dot.clicked.connect(() => {
+		    btn_dot.clicked.connect (() => {
                 txt_display.buffer.text += ".";
 		    });
 		    
-		    btn_clear.clicked.connect(() => {
+		    btn_clear.clicked.connect (() => {
 		        txt_display.buffer.text = "";
 		        first_value = 0;
 		        second_value = 0;
@@ -157,19 +157,19 @@ namespace Valacalc {
 
 		    });
 		    
-		    btn_equals.clicked.connect(() => {
+		    btn_equals.clicked.connect (() => {
 		        switch (op) {
 		            case "+":
-		                txt_display.buffer.text = (first_value+second_value).to_string();
+		                txt_display.buffer.text = (first_value+second_value).to_string ();
 		                break;
 	                case "-":
-		                txt_display.buffer.text = (first_value-second_value).to_string();
+		                txt_display.buffer.text = (first_value-second_value).to_string ();
 		                break;
 	                case "*":
-		                txt_display.buffer.text = (first_value*second_value).to_string();
+		                txt_display.buffer.text = (first_value*second_value).to_string ();
 		                break;
 	                case "/":
-		                txt_display.buffer.text = (first_value/second_value).to_string();
+		                txt_display.buffer.text = (first_value/second_value).to_string ();
 		                break;
 		        }
 		        
